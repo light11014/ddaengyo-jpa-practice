@@ -29,22 +29,20 @@ public class Menu extends BaseEntity{
     @Column(nullable = false)
     private Integer price;
 
-    @Column(columnDefinition = "TEXT")
-    private String menuPictureUrl;
 
-    @Column(nullable = false)
+
+    @Column(nullable = true)
     private Boolean popularity;
 
 
 
 
 
-    public Menu(Long storeId, String category, String name, Integer price, String menuPictureUrl) {
+    public Menu(Long storeId, String category, String name, Integer price) {
         this.storeId = storeId;
         this.category = category;
         this.name = name;
         this.price = price;
-        this.menuPictureUrl = menuPictureUrl;
         this.popularity = false;
 
 
@@ -54,7 +52,7 @@ public class Menu extends BaseEntity{
         this.category = category;
         this.name = name;
         this.price = price;
-        this.menuPictureUrl = menuPictureUrl;
+
 
     }
 
@@ -63,6 +61,6 @@ public class Menu extends BaseEntity{
 
     }
 
-    public void delete() {
-    }
+//    public void delete() {
+//    }
 }

@@ -48,8 +48,8 @@ public class MenuOption extends BaseEntity{
         this.price = price;
 
     }
-
-    public void delete() {
-
-    }
+//
+//    public void delete() {
+//
+//    }
 }
