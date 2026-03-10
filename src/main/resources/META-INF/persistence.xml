@@ -12,7 +12,7 @@
             <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver" />
             <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/testdb?serverTimezone=UTC"/>
             <property name="javax.persistence.jdbc.user" value="root"/>
-            <property name="javax.persistence.jdbc.password" value="1234"/>
+            <property name="javax.persistence.jdbc.password" value="password"/>
 
             <!-- JPA 관련 설정(옵션) -->
             <!-- 테이블 생성, 변경 관련 옵션 -->

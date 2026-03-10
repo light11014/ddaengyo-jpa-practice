@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
 @Table(name = "menu_options")
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class MenuOption {
+public class MenuOption extends BaseEntity{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,34 +30,26 @@ public class MenuOption {
     @Column(nullable = false)
     private Integer price;
 
-    @Column(nullable = false)
-    private LocalDateTime createdDate;
 
-    @Column(nullable = false)
-    private LocalDateTime modifiedDate;
 
-    @Column(nullable = false)
-    private String status;
+
 
     public MenuOption(Menu menu, String option, String content, Integer price) {
         this.menu = menu;
         this.option = option;
         this.content = content;
         this.price = price;
-        this.createdDate = LocalDateTime.now();
-        this.modifiedDate = LocalDateTime.now();
-        this.status = "ACTIVE";
+
     }
 
     public void update(String option, String content, Integer price) {
         this.option = option;
         this.content = content;
         this.price = price;
-        this.modifiedDate = LocalDateTime.now();
+
     }
 
     public void delete() {
-        this.status = "DELETED";
-        this.modifiedDate = LocalDateTime.now();
+
     }
 }
