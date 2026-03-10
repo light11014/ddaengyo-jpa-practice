@@ -3,8 +3,6 @@ package dev.jpa.entity;
 import jakarta.persistence.*;
 import lombok.*;
 import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.List;
 
 @Entity
 @Getter
@@ -77,8 +75,4 @@ public class Store extends BaseEntity {
     @Column(name = "delivery_address", length = 255)
     private String deliveryAddress;
 
-    // 연관관계
-    @OneToMany(mappedBy = "store", cascade = CascadeType.ALL, orphanRemoval = true)
-    @Builder.Default
-    private List<Dib> dib = new ArrayList<>();
 }
