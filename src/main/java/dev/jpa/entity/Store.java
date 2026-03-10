@@ -81,12 +81,8 @@ public class Store extends BaseEntity {
     @Column(name = "delivery_address", length = 255)
     private String deliveryAddress;
 
-    @Column(name = "status", nullable = false, length = 255)
-    @Builder.Default
-    private String status = "일반";
-
     // 연관관계
     @OneToMany(mappedBy = "store", cascade = CascadeType.ALL, orphanRemoval = true)
     @Builder.Default
-    private List<Dib> dibs = new ArrayList<>();
+    private List<Dib> dib = new ArrayList<>();
 }
