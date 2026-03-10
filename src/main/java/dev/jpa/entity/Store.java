@@ -37,10 +37,6 @@ public class Store extends BaseEntity {
     @Column(name = "address", nullable = false, length = 255)
     private String address;
 
-    @Lob
-    @Column(name = "store_picture_url")
-    private String storePictureUrl;
-
     @Column(name = "phone", nullable = false, length = 20)
     private String phone;
 
