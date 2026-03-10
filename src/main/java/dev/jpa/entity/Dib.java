@@ -26,5 +26,11 @@ public class Dib extends BaseEntity {
     public void setUser(User user) {
         this.user = user;
         user.getDib().add(this);
+        this.store.increaseDibsCount();
+    }
+
+    public void cancelDib() {
+        this.store.decreaseDibsCount();
+        this.user.getDib().remove(this);
     }
 }
