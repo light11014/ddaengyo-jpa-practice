@@ -32,7 +32,7 @@ class OrderJpaTest {
         EntityManager em = emf.createEntityManager();
         em.getTransaction().begin();
 
-        Menu menu = new Menu(7L, "커피", "아메리카노", 3000);
+        Menu menu = new Menu(7L, "커피", "아메리카노", 3000, null); // menuPictureUrl 추가
         em.persist(menu);
 
         MenuOption option = new MenuOption(menu, "사이즈", "라지", 500);
@@ -62,7 +62,7 @@ class OrderJpaTest {
         EntityManager em = emf.createEntityManager();
         em.getTransaction().begin();
 
-        Menu menu = new Menu(1L, "한식", "비빔밥", 9000);
+        Menu menu = new Menu(1L, "한식", "비빔밥", 9000, null); // menuPictureUrl 추가
         em.persist(menu);
 
         Cart cart = Cart.create(3L, 1L, menu, null, 1);

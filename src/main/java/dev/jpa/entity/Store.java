@@ -75,4 +75,28 @@ public class Store extends BaseEntity {
     @Column(name = "delivery_address", length = 255)
     private String deliveryAddress;
 
+    // 가게 상태 (일반 / 임시휴무 / 폐업)
+    @Column(name = "status", nullable = false, length = 255)
+    @Builder.Default
+    private String status = "일반";
+
+    // 찜 추가 시 호출 → dibsCount +1
+    public void increaseDibsCount() {
+        this.dibsCount++;
+    }
+
+    // 찜 취소 시 호출 → dibsCount -1 (0 미만 방어)
+    public void decreaseDibsCount() {
+        if (this.dibsCount > 0) this.dibsCount--;
+    }
+
+    // 임시휴무 처리
+    public void closeTemporarily() {
+        this.status = "임시휴무";
+    }
+
+    // 영업 재개
+    public void reopen() {
+        this.status = "일반";
+    }
 }

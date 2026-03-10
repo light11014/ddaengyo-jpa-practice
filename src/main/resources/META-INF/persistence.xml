@@ -12,7 +12,7 @@
             <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver" />
             <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/testdb?serverTimezone=UTC"/>
             <property name="javax.persistence.jdbc.user" value="root"/>
-            <property name="javax.persistence.jdbc.password" value="password"/>
+            <property name="javax.persistence.jdbc.password" value='1234'/>
 
             <!-- JPA 관련 설정(옵션) -->
             <!-- 테이블 생성, 변경 관련 옵션 -->
@@ -21,7 +21,7 @@
             <!-- none: 별도의 옵션을 적용하지 않음 -->
             <!-- validate: JPA가 아닌 테이블을 직접 생성해서 관리하는 경우,
             JPA와의 맵핑 정보를 검증하기 위한 옵션 -->
-            <property name="hibernate.hbm2ddl.auto" value="none"/>
+            <property name="hibernate.hbm2ddl.auto" value="create-drop"/>
 
             <!-- JPA가 생성한 쿼리를 콘솔에 출력 -->
             <property name="hibernate.show_sql" value="true"/>

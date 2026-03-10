@@ -32,7 +32,7 @@ class CartJpaTest {
         EntityManager em = emf.createEntityManager();
         em.getTransaction().begin();
 
-        Menu menu = new Menu(1L, "치킨", "후라이드", 18000);
+        Menu menu = new Menu(1L, "치킨", "후라이드", 18000, null); // menuPictureUrl 추가
         em.persist(menu);
 
         MenuOption option = new MenuOption(menu, "사이드", "치즈볼", 3000);
@@ -58,7 +58,7 @@ class CartJpaTest {
         EntityManager em = emf.createEntityManager();
         em.getTransaction().begin();
 
-        Menu menu = new Menu(1L, "분식", "떡볶이", 5000);
+        Menu menu = new Menu(1L, "분식", "떡볶이", 5000, null); // menuPictureUrl 추가
         em.persist(menu);
 
         IllegalArgumentException exception =
