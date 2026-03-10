@@ -53,7 +53,7 @@ public class Order extends BaseEntity {
 
     public static Order create(Long storeId, Long userId, String paymentMethod, String requests, List<Cart> carts) {
         if (carts == null || carts.isEmpty()) {
-            throw new IllegalArgumentException("order requires at least one cart item");
+            throw new IllegalArgumentException("주문에는 최소 한 개 이상의 장바구니 항목이 필요합니다");
         }
         Order order = new Order(storeId, userId, paymentMethod, requests);
         for (Cart cart : carts) {
@@ -67,10 +67,10 @@ public class Order extends BaseEntity {
 
     private void addCart(Cart cart) {
         if (!cart.getUserId().equals(userId)) {
-            throw new IllegalArgumentException("cart user does not match order user");
+            throw new IllegalArgumentException("장바구니 사용자와 주문 사용자가 일치하지 않습니다");
         }
         if (!cart.getStoreId().equals(storeId)) {
-            throw new IllegalArgumentException("cart store does not match order store");
+            throw new IllegalArgumentException("장바구니의 가게와 주문의 가게가 일치하지 않습니다");
         }
         carts.add(cart);
         cart.assignOrder(this);
