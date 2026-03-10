@@ -35,9 +35,10 @@ class CartJpaTest {
             manager.clear();
 
             Cart savedCart = manager.find(Cart.class, cart.getId());
+            int expectedLinePrice = (menu.getPrice() + option.getPrice()) * 2;
             assertNotNull(savedCart.getId());
             assertEquals(2, savedCart.getQuantity());
-            assertEquals(42000, savedCart.calculateLinePrice());
+            assertEquals(expectedLinePrice, savedCart.calculateLinePrice());
             transaction.commit();
         } finally {
             if (transaction.isActive()) {
@@ -82,8 +83,9 @@ class CartJpaTest {
             manager.clear();
 
             Cart savedCart = manager.find(Cart.class, cart.getId());
+            int expectedLinePrice = menu.getPrice() * 3;
             assertEquals(3, savedCart.getQuantity());
-            assertEquals(21000, savedCart.calculateLinePrice());
+            assertEquals(expectedLinePrice, savedCart.calculateLinePrice());
             transaction.commit();
         } finally {
             if (transaction.isActive()) {

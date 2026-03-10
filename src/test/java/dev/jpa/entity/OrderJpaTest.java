@@ -39,7 +39,8 @@ class OrderJpaTest {
             manager.clear();
 
             Order savedOrder = manager.find(Order.class, order.getId());
-            assertEquals(10000, savedOrder.getTotalPrice());
+            int expectedTotalPrice = firstCart.calculateLinePrice() + secondCart.calculateLinePrice();
+            assertEquals(expectedTotalPrice, savedOrder.getTotalPrice());
             assertEquals(2, savedOrder.getCarts().size());
             transaction.commit();
         } finally {
