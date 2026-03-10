@@ -57,10 +57,10 @@ public class Cart extends BaseEntity {
     // 생성 시점에 메뉴-가게, 옵션-메뉴 관계가 맞는지 먼저 검증
     public static Cart create(Long userId, Long storeId, Menu menu, MenuOption menuOption, int quantity) {
         if (!menu.getStoreId().equals(storeId)) {
-            throw new IllegalArgumentException("menu store does not match cart store");
+            throw new IllegalArgumentException("메뉴의 가게와 장바구니의 가게가 일치하지 않습니다");
         }
         if (menuOption != null && !menuOption.getMenu().equals(menu)) {
-            throw new IllegalArgumentException("menu option does not belong to menu");
+            throw new IllegalArgumentException("해당 메뉴의 옵션만 장바구니에 담을 수 있습니다");
         }
         return new Cart(userId, storeId, menu, menuOption, quantity);
     }
@@ -84,7 +84,7 @@ public class Cart extends BaseEntity {
     // quantity는 NOT NULL이며 기본값이 1이라서, 도메인 규칙도 1 이상의 값만 허용
     private void validateQuantity(int quantity) {
         if (quantity <= 0) {
-            throw new IllegalArgumentException("quantity must be greater than zero");
+            throw new IllegalArgumentException("수량은 1 이상이어야 합니다");
         }
     }
 
