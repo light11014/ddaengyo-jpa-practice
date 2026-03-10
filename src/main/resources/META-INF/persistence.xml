@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.2" xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd">
+
+    <!-- JPA, DBMS 연결 관련 설정 정보 작성하는 파일 -->
+    <persistence-unit name="hello-jpa">
+        <!-- name의 값은 EntityManagerFactory 생성 값과 동일하게 지정  -->
+
+        <properties>
+            <!-- DBMS(MySQL) 관련 설정 -->
+            <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver" />
+            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/testdb?serverTimezone=UTC"/>
+            <property name="javax.persistence.jdbc.user" value="root"/>
+            <property name="javax.persistence.jdbc.password" value="1234"/>
+
+            <!-- JPA 관련 설정(옵션) -->
+            <!-- 테이블 생성, 변경 관련 옵션 -->
+            <!-- create: 기존 테이블이 존재할 경우, 해당 테이블을 제거(DROP), 새로 생성(CREATE) = DROP + CREATE -->
+            <!-- update: DB테이블과 엔티티 맵핑 정보를 비교, 변경된 사항만 수정 -->
+            <!-- none: 별도의 옵션을 적용하지 않음 -->
+            <!-- validate: JPA가 아닌 테이블을 직접 생성해서 관리하는 경우,
+            JPA와의 맵핑 정보를 검증하기 위한 옵션 -->
+            <property name="hibernate.hbm2ddl.auto" value="none"/>
+
+            <!-- JPA가 생성한 쿼리를 콘솔에 출력 -->
+            <property name="hibernate.show_sql" value="true"/>
+
+            <property name="hibernate.format_sql" value="true"/>
+        </properties>
+
+    </persistence-unit>
+
+</persistence>
